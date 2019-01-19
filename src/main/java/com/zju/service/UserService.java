@@ -1,6 +1,7 @@
 package com.zju.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -132,6 +133,10 @@ public class UserService {
 		
 		userDao.updatePassword(email, new_pwd);
 		return Property.SUCCESS_PWD_CHANGE;
+	}
+
+	public List<User> findAllbyIDs(List<Long> ids) {
+		return userDao.getUsersByIDs(ids);
 	}
 
 }

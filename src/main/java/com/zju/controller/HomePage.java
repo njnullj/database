@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zju.model.User;
+import com.zju.service.FollowService;
 import com.zju.service.UserService;
 import com.zju.utils.Dic;
 
@@ -20,6 +21,8 @@ public class HomePage {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private FollowService followService;
 	
 	@RequestMapping("/index")
 	public ModelAndView showHomePage(HttpSession session) {
@@ -44,12 +47,36 @@ public class HomePage {
 		ModelAndView mav = new ModelAndView();
 		if(session.getAttribute("user")!=null) {
 			mav.setViewName("redirect:/index");
-			System.out.println("我一直在执行!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!22222222222222");
 			return mav;
 		}
 		mav.setViewName("welcome");
-//		List
 		mav.addObject("dic",new Dic());
 		return mav;
 	}
+	
+	@RequestMapping("/followers")
+	public ModelAndView getFollowers(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("followers", userService.findAllbyIDs(
+								   followService.getFollowerIDs(
+										   ((User)session.getAttribute("user")).getId())
+								   ));
+		
+		mav.setViewName("follower");
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping("/404")
+	public ModelAndView pageNotFound() {
+		return new ModelAndView("404");
+	}
+	
+	@RequestMapping("/500")
+	public ModelAndView error500() {
+		return new ModelAndView("500");
+	}
+
 }
