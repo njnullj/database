@@ -16,6 +16,23 @@ public class FollowDao {
 		// TODO Auto-generated method stub
 		List<Long> ids = new ArrayList<Long>();
 
+		String cql = "match (na:person{id:"+id+"})-[r:friends]->(nb:person)-[re:friends]->(nc:person) return nc.id limit 100";
+		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
+		Session session = driver.session();
+		StatementResult result = session.run(cql);
+		while (result.hasNext()) {
+			Record record = result.next();
+			ids.add(record.get("nc.id").asNumber().longValue());
+			System.out.println(record.get("nc.id").asNumber().longValue());
+		}
+		
+		return ids;
+	}
+
+	public List<Long> getFollowingIDs(long id) {
+		// TODO Auto-generated method stub
+		List<Long> ids = new ArrayList<Long>();
+
 		String cql = "match (na:person{id:"+id+"})-[r:friends]->(n:person) return n.id limit 25";
 		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
 		Session session = driver.session();
@@ -25,7 +42,6 @@ public class FollowDao {
 			ids.add(record.get("n.id").asNumber().longValue());
 			System.out.println(record.get("n.id").asNumber().longValue());
 		}
-		
 		return ids;
 	}
 

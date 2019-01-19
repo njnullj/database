@@ -52,6 +52,11 @@ public class FollowService {
 		// TODO Auto-generated method stub
 		return followDao.getFollowerIDs(id);
 	}
+
+	public List<Long> getFollowingIDs(long id) {
+		// TODO Auto-generated method stub
+		return followDao.getFollowingIDs(id);
+	}
 	
 	
 //	public Map<String, Object> undoFollow(int user_id, int following_user_id) {

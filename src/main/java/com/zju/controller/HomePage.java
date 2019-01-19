@@ -66,7 +66,17 @@ public class HomePage {
 		return mav;
 	}
 	
-	
+	@RequestMapping("/followings")
+	public ModelAndView getFollowings(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("followings", userService.findAllbyIDs(
+									followService.getFollowingIDs(
+											((User)session.getAttribute("user")).getId())
+									));
+		
+		mav.setViewName("following");
+		return mav;
+	}
 	
 	
 	@RequestMapping("/404")
