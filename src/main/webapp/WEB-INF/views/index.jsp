@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>OSF</title>
+  <title>MSF</title>
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
