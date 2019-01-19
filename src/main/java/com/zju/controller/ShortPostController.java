@@ -2,6 +2,7 @@ package com.zju.controller;
 
 import java.util.Map;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zju.model.User;
 import com.zju.service.PostService;
-import com.zju.service.UserService;
 
 @Controller
 @RequestMapping("/spost")
@@ -22,8 +22,8 @@ public class ShortPostController {
 	@Autowired
 	private PostService postService;
 
-	@Autowired
-	private UserService userService;
+//	@Autowired
+//	private UserService userService;
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)

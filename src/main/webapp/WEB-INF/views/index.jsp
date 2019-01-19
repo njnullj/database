@@ -181,7 +181,7 @@
 					    <div class="value">
 					      <a href="<c:url value="/followers" />">${counter.follower }</a>
 					    </div>
-					    <div class="label">图片
+					    <div class="label">粉丝
 					    </div>
 					  </div>
 					  <div class="statistic">

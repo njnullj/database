@@ -2,6 +2,7 @@ package com.zju.controller;
 
 import java.util.Map;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zju.model.Post;
 import com.zju.model.User;
 import com.zju.service.PostService;
-import com.zju.utils.Property;
 
 @Controller
 @RequestMapping("/post")
@@ -47,8 +46,8 @@ public class PostController {
 													  content, 
 													  post_status, 
 													  comment_status);
-		String status = (String)map.get("status");
-		Post post = (Post)map.get("post");
+//		String status = (String)map.get("status");
+//		Post post = (Post)map.get("post");
 		
 		
 		/*

@@ -34,7 +34,7 @@
 								    <div class='value'>
 								      ${counter.follower }
 								    </div>
-								    <div class='label'>图片
+								    <div class='label'>粉丝
 								    </div>
 								  </div>
 								  <div class='statistic'>
