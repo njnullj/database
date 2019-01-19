@@ -159,4 +159,10 @@ public class AccountController {
 		return map;
 	}
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "account/login";
+	}
+	
 }
