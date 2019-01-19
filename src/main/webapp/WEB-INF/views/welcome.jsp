@@ -8,7 +8,7 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="0">
-	<title>Welcome to OSF</title>
+	<title>Welcome to MSF</title>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
