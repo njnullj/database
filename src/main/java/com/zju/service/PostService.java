@@ -101,7 +101,7 @@ public class PostService {
 		return map;
 	}
 
-	public Map<User,Post> getShortPosts() {
+	public Map<String,Post> getShortPosts() {
 		// TODO Auto-generated method stub
 		return postDao.getShortPosts();
 	}

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.zju.dao.FollowDao;
 import com.zju.model.Follower;
+import com.zju.model.User;
 import com.zju.utils.Property;
 
 @Service("FollowService")
@@ -54,6 +55,12 @@ public class FollowService {
 		return followDao.getFollowerIDs(id);
 	}
 
+	public Map<String,List<User>> getUserAndFollowers(long id){
+		Map<String, List<User>> res = followDao.getUserAndFollowers(id);
+		
+		return res;
+	}
+	
 	public List<Long> getFollowingIDs(long id) {
 		// TODO Auto-generated method stub
 		return followDao.getFollowingIDs(id);

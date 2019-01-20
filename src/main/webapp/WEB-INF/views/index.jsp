@@ -29,6 +29,7 @@
   		height: 40px;
   	}
   </style>
+
   <script>
   	$.ajax({
 			url: basePath+'/getShortPosts',
