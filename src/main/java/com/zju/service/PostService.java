@@ -1,6 +1,7 @@
 package com.zju.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.zju.dao.PostDao;
 import com.zju.model.Post;
+import com.zju.model.User;
 import com.zju.utils.Property;
 
 @Service("PostService")
@@ -97,6 +99,11 @@ public class PostService {
 		map.put("spost", spost);
 		map.put("status", Property.SUCCESS_POST_CREATE);
 		return map;
+	}
+
+	public Map<User,Post> getShortPosts() {
+		// TODO Auto-generated method stub
+		return postDao.getShortPosts();
 	}
 
 }

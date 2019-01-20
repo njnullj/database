@@ -1,6 +1,8 @@
 package com.zju.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -8,10 +10,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.zju.model.Post;
 import com.zju.model.User;
 import com.zju.service.FollowService;
+import com.zju.service.PostService;
 import com.zju.service.UserService;
 import com.zju.utils.Dic;
 
@@ -23,6 +29,9 @@ public class HomePage {
 	
 	@Autowired
 	private FollowService followService;
+	
+	@Autowired
+	private PostService postService;
 	
 	@RequestMapping("/index")
 	public ModelAndView showHomePage(HttpSession session) {
@@ -76,6 +85,15 @@ public class HomePage {
 		
 		mav.setViewName("following");
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getShortPosts", method=RequestMethod.POST)
+	public Map<User,Post> getShortPosts(HttpSession session){
+		Map<User,Post> shortposts = new HashMap<User,Post>();
+		shortposts = postService.getShortPosts();
+		return shortposts;
+		
 	}
 	
 	

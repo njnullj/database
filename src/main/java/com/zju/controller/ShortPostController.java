@@ -29,7 +29,6 @@ public class ShortPostController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Map<String, Object> createPost(@RequestParam("content") String content, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		System.out.println(user.getId()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		Map<String, Object> map = postService.newShortPost(user.getId(), content);
 		
 //		List<Integer> followers = followService.getFollowerIDs(user.getId());
