@@ -92,6 +92,13 @@ public class HomePage {
 	public Map<User,Post> getShortPosts(HttpSession session){
 		Map<User,Post> shortposts = new HashMap<User,Post>();
 		shortposts = postService.getShortPosts();
+		for (User key : shortposts.keySet()) {
+			System.out.println("Key = " + key.getName());
+		}
+		// 遍历map中的值
+		for (Post value : shortposts.values()) {
+			System.out.println("Value = " + value.getPost_content());
+		}
 		return shortposts;
 		
 	}

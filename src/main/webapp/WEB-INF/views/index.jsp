@@ -29,6 +29,17 @@
   		height: 40px;
   	}
   </style>
+  <script>
+  	$.ajax({
+			url: basePath+'/getShortPosts',
+			type: 'POST',
+			dataType: 'json',
+			data:{}
+		})
+		.success(function(data) {
+			console.log(data);		
+		});
+  </script>
 </head>
 <body>
   <%@ include file="topbar.jsp" %>
