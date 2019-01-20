@@ -5,7 +5,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SF</title>
+  <meta name="referrer" content="no-referrer" />
+  <title>MSF</title>
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
@@ -20,7 +21,7 @@
   <%@ include file="topbar.jsp" %>
 	<div class="container">
 		<div class="row">
-			<div class="span4">
+			<div class="span4">   
 				<div class="ui vertical menu">
 				  <a class="item" href='<c:url value="/followings"/>' >
 				    关注
@@ -42,7 +43,7 @@
 					<c:forEach items="${followers}" var="follower">
 			            <div class="ui card" style="width:33%">
 			              <div class="ui small centered circular  image">
-			                <a href="<c:url value="/user/${follower.id }" />"><img src="<c:url value="/user/${user.avatar }"/> "></a>
+			                <a href="<c:url value="/user/${follower.id }" />"><img src="<c:url value="${follower.avatar }"/> "></a>
 			              </div>
 			              <div class="content">
 			                <a class="header centered" href="<c:url value="/user/${following.id}" />">

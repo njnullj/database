@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="0">
-
+<meta name="referrer" content="no-referrer" />
 <c:if test="${not empty sessionScope.user}">
 	<meta name="isLogin" content="true"/>
 </c:if>
