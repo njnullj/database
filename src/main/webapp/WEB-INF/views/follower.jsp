@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>OSF</title>
+  <title>SF</title>
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
@@ -39,14 +39,14 @@
 				</div>
 
 				<div class="ui cards">
-					<c:forEach items="${followers }" var="follower">
+					<c:forEach items="${followers}" var="follower">
 			            <div class="ui card" style="width:33%">
 			              <div class="ui small centered circular  image">
-			                <a href="<c:url value="/user/${follower.id }" />"><img src="<c:url value="http://img2.imgtn.bdimg.com/it/u=3846895839,2711067435&fm=26&gp=0.jpg"/> "></a>
+			                <a href="<c:url value="/user/${follower.id }" />"><img src="<c:url value="/user/${user.avatar }"/> "></a>
 			              </div>
 			              <div class="content">
 			                <a class="header centered" href="<c:url value="/user/${following.id}" />">
-			                	${follower.name }
+			                	${follower.name}
 			                </a>
 			              </div>
 			            </div> 

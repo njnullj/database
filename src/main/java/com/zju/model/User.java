@@ -9,6 +9,7 @@ public class User {
 	private int followers;
 	private int following;
 	private int posts;
+	private String avatar;
 	public String getEmail() {
 		return email;
 	}
@@ -57,6 +58,11 @@ public class User {
 	public void setPosts(int posts) {
 		this.posts = posts;
 	}
-	
+	public String getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 	
 }

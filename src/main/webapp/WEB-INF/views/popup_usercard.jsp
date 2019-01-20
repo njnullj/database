@@ -6,7 +6,7 @@
 						<div class='row'>
 							<div class='span1'>
 								<div class='ui tiny centered circular image'>
-									<img src='http://img2.imgtn.bdimg.com/it/u=3846895839,2711067435&fm=26&gp=0.jpg' alt='${u.name }' />
+									<img src='https://img5.duitang.com/uploads/item/201410/05/20141005082835_2RTzn.thumb.700_0.jpeg' alt='${u.name }' />
 								</div>
 								
 							</div>

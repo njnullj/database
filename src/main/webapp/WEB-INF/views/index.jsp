@@ -36,7 +36,7 @@
           <div class="span8">  
 	          	<div class="header_box">
 	          		<div class="ui avatar image">
-	                	 <img src="http://img2.imgtn.bdimg.com/it/u=3846895839,2711067435&fm=26&gp=0.jpg">
+	                	 <!-- <img src="http://img2.imgtn.bdimg.com/it/u=3846895839,2711067435&fm=26&gp=0.jpg"> -->
 	                </div>                
 					<div id="action_bar">
 						<div class="ui labeled icon menu actions" >
@@ -160,14 +160,14 @@
           		<c:if test="${not empty sessionScope.user}">
 	            <div class="ui card">
 	              <div class="ui small centered circular  image">
-	                <a href="<c:url value="/user/${user.id }" />"><img src="<c:url value="http://img2.imgtn.bdimg.com/it/u=3846895839,2711067435&fm=26&gp=0.jpg"/> "></a>
+	                <a href="<c:url value="/user/${user.id }" />"><img src="<c:url value="/user/${user.avatar }"/> "></a>
 	              </div>
 	              <div class="content">
 	                <a class="header centered" href="<c:url value="/user/${user.id}" />">
 	                	${user.name }
 	                </a>
 	                <div class="meta centered">
-	                  <span class="date">不想成为画家的黑客不是好摄影师</span>
+	                  <span class="date">${user.desc }</span>
 	                </div>	                
 					<div class="ui mini statistics">
 					  <div class="statistic">

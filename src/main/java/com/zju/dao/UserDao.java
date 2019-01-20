@@ -48,7 +48,7 @@ public class UserDao {
 		User user = new User();
 
 		String cql = "match (n:person{email:\"" + email
-				+ "\"}) return n.id,n.email,n.name,n.pwd,n.desc,n.followers,n.following,n.weibo_num";
+				+ "\"}) return n.id,n.email,n.name,n.pwd,n.desc,n.followers,n.following,n.weibo_num,n.avatar";
 		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
 		Session session = driver.session();
 		StatementResult result = session.run(cql);
@@ -62,6 +62,7 @@ public class UserDao {
 			user.setFollowers(record.get("n.followers").asNumber().intValue());
 			user.setFollowing(record.get("n.following").asNumber().intValue());
 			user.setPosts(record.get("n.weibo_num").asNumber().intValue());
+			user.setAvatar(record.get("n.avatar").asString());
 		}
 		session.close();
 		driver.close();
@@ -116,7 +117,7 @@ public class UserDao {
 
 		for (long id : ids) {
 			String cql = "match (n:person{id:" + id
-					+ "}) return n.id,n.email,n.name,n.pwd,n.desc,n.followers,n.following,n.weibo_num";
+					+ "}) return n.id,n.email,n.name,n.pwd,n.desc,n.followers,n.following,n.weibo_num,n.avatar";
 			
 			StatementResult result = session.run(cql);
 			while (result.hasNext()) {
@@ -130,6 +131,7 @@ public class UserDao {
 				user.setFollowers(record.get("n.followers").asNumber().intValue());
 				user.setFollowing(record.get("n.following").asNumber().intValue());
 				user.setPosts(record.get("n.weibo_num").asNumber().intValue());
+				user.setAvatar(record.get("n.avatar").asString());
 				System.out.println(cql+"     "+record.get("n.name").asString());
 				users.add(user);
 			}

@@ -116,7 +116,7 @@ $(document).ready(function(){
 				$(short_post).css('display', 'block');
 				$('.feed:first').prepend($(short_post));
 				$('#spost_content').val('');
-				$('#emoji-list-container').fadeToggle('fast');
+//				$('#emoji-list-container').fadeToggle('fast');
 			}
 		})
 		.fail(function() {

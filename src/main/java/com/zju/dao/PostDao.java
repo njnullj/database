@@ -17,7 +17,7 @@ public class PostDao {
 		// TODO Auto-generated method stub
 		int id=(int) (Math.random() * Math.pow(2,30));
 		Date now = new Date();
-		SimpleDateFormat f=new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = f.format(now);
 		final String cql="create (n:weibo{weibo_id:"+id+",publish_time:\""+time+"\",author:"+post.getPost_author()+",publish_content:\""+post.getPost_content()+"\"})";
 		System.out.println(post.getPost_author()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+id);
