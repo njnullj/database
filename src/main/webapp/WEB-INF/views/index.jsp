@@ -160,7 +160,7 @@
           		<c:if test="${not empty sessionScope.user}">
 	            <div class="ui card">
 	              <div class="ui small centered circular  image">
-	                <a href="<c:url value="/user/${user.id }" />"><img src="<c:url value="/user/${user.avatar }"/> "></a>
+	                <a href="<c:url value="/user/${user.id }" />"><img src="<c:url value="${user.avatar }"/> "></a>
 	              </div>
 	              <div class="content">
 	                <a class="header centered" href="<c:url value="/user/${user.id}" />">
