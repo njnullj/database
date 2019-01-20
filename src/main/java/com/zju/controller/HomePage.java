@@ -2,6 +2,7 @@ package com.zju.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -26,82 +27,79 @@ public class HomePage {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private FollowService followService;
-	
+
 	@Autowired
 	private PostService postService;
-	
+
 	@RequestMapping("/index")
 	public ModelAndView showHomePage(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
-		User user = (User)session.getAttribute("user");
-		if(user == null) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
 			return mav;
 		}
 
-		Map<String,Integer> res =new HashMap<String,Integer>();
-		res=userService.getCounterOfFollowAndShortPost(user.getEmail());
-		
-		mav.addObject("counter",res);
-		mav.addObject("dic",new Dic());
-		//List<Event>
+		Map<String, Integer> res = new HashMap<String, Integer>();
+		res = userService.getCounterOfFollowAndShortPost(user.getEmail());
+
+		mav.addObject("counter", res);
+		mav.addObject("dic", new Dic());
+		// List<Event>
 		return mav;
 	}
-	
+
 	@RequestMapping("/welcome")
 	public ModelAndView welcome(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		if(session.getAttribute("user")!=null) {
+		if (session.getAttribute("user") != null) {
 			mav.setViewName("redirect:/index");
 			return mav;
 		}
 		mav.setViewName("welcome");
-		mav.addObject("dic",new Dic());
+		mav.addObject("dic", new Dic());
 		return mav;
 	}
-	
+
 	@RequestMapping("/followers")
-	public ModelAndView getFollowers(HttpSession session){
+	public ModelAndView getFollowers(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("followers", userService.findAllbyIDs(
-								   followService.getFollowerIDs(
-										   ((User)session.getAttribute("user")).getId())
-								   ));
-		
+//		mav.addObject("followers", userService.findAllbyIDs(
+//								   followService.getFollowerIDs(
+//										   ((User)session.getAttribute("user")).getId())
+//								   ));
+		mav.addObject("followers", followService.getUserAndFollowers(((User) session.getAttribute("user")).getId()));
 		mav.setViewName("follower");
 		return mav;
 	}
-	
+
 	@RequestMapping("/followings")
-	public ModelAndView getFollowings(HttpSession session){
+	public ModelAndView getFollowings(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("followings", userService.findAllbyIDs(
-									followService.getFollowingIDs(
-											((User)session.getAttribute("user")).getId())
-									));
-		
+		mav.addObject("followings",
+				userService.findAllbyIDs(followService.getFollowingIDs(((User) session.getAttribute("user")).getId())));
+
 		mav.setViewName("following");
 		return mav;
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="/getShortPosts", method=RequestMethod.POST)
-	public Map<User,Post> getShortPosts(HttpSession session){
-		Map<User,Post> shortposts = new HashMap<User,Post>();
+	@RequestMapping(value = "/getShortPosts", method = RequestMethod.POST)
+	public Map<String, Post> getShortPosts(HttpSession session) {
+		Map<String, Post> shortposts = new HashMap<String, Post>();
 		shortposts = postService.getShortPosts();
 		return shortposts;
-		
+
 	}
-	
-	
+
 	@RequestMapping("/404")
 	public ModelAndView pageNotFound() {
 		return new ModelAndView("404");
 	}
-	
+
 	@RequestMapping("/500")
 	public ModelAndView error500() {
 		return new ModelAndView("500");

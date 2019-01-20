@@ -40,9 +40,9 @@ public class PostDao {
 		return id;
 	}
 
-	public Map<User,Post> getShortPosts() {
+	public Map<String,Post> getShortPosts() {
 		// TODO Auto-generated method stub
-		Map<User,Post> shortPosts = new HashMap<User,Post>();
+		Map<String,Post> shortPosts = new HashMap<String,Post>();
 
 		String cql = "match (n:person)-[r:publish]->(nb:weibo) return n.name,nb.publish_content,nb.publish_time order by nb.publish_time desc limit 50";
 		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
@@ -53,9 +53,10 @@ public class PostDao {
 			User user = new User();
 			Record record = result.next();
 			user.setName(record.get("n.name").asString());
-			post.setPost_content(record.get("n.publish_content").asString());
-			post.setDate(record.get("n.publish_time").asString());
+			post.setPost_content(record.get("nb.publish_content").asString());
+			post.setDate(record.get("nb.publish_time").asString());
 			System.out.println(user.getName()+"在"+post.getDate()+"的时候发送了一条消息"+post.getPost_content());
+			shortPosts.put(user.getName(), post);
 		}
 		
 		return shortPosts;
