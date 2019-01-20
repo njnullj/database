@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer" />
   <title>MSF</title>
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">

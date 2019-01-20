@@ -52,7 +52,7 @@
 							<div class="meta">
 								<div class="author">
 									<a href="<c:url value="/user/${u.id }" />">
-										<img class="ui avatar image" src="<c:url value="http://img2.imgtn.bdimg.com/it/u=3846895839,2711067435&fm=26&gp=0.jpg" />">
+										<img class="ui avatar image" src="<c:url value="/user/${u.avatar }" />">
 									</a>
 									<span>${u.name }</span>
 									<c:if test="${!empty sessionScope.user }">
