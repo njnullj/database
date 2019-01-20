@@ -1,7 +1,11 @@
 package com.zju.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;
@@ -139,4 +143,35 @@ public class UserDao {
 		
 		return users;
 	}
+	
+//	public Map<User,User> findUserByIDs(List<Long> ids){
+//		Map<User,User> followers = new HashMap<User,User>();
+//		
+//		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
+//		Session session = driver.session();
+//
+//		for (long id : ids) {
+//			String cql = "match (n:person{id:" + id
+//					+ "}) return n.id,n.email,n.name,n.pwd,n.desc,n.followers,n.following,n.weibo_num";
+//			
+//			StatementResult result = session.run(cql);
+//			while (result.hasNext()) {
+//				Record record = result.next();
+//				User user = new User();
+//				user.setId(record.get("n.id").asNumber().longValue());
+//				user.setName(record.get("n.name").asString());
+//				user.setEmail(record.get("n.email").asString());
+//				user.setPassword(record.get("n.pwd").asString());
+//				user.setDesc(record.get("n.desc").asString());
+//				user.setFollowers(record.get("n.followers").asNumber().intValue());
+//				user.setFollowing(record.get("n.following").asNumber().intValue());
+//				user.setPosts(record.get("n.weibo_num").asNumber().intValue());
+//				System.out.println(cql+"     "+record.get("n.name").asString());
+//				followers.put(user);
+//			}
+//		}
+//		
+//		return followers;
+//		
+//	}
 }

@@ -1,7 +1,9 @@
 package com.zju.dao;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;
@@ -23,7 +25,6 @@ public class FollowDao {
 		while (result.hasNext()) {
 			Record record = result.next();
 			ids.add(record.get("nc.id").asNumber().longValue());
-			System.out.println(record.get("nc.id").asNumber().longValue());
 		}
 		
 		return ids;
@@ -40,7 +41,6 @@ public class FollowDao {
 		while (result.hasNext()) {
 			Record record = result.next();
 			ids.add(record.get("n.id").asNumber().longValue());
-			System.out.println(record.get("n.id").asNumber().longValue());
 		}
 		return ids;
 	}
