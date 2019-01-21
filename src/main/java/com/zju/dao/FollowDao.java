@@ -100,7 +100,8 @@ public class FollowDao {
 
 				  
 		}
-		
+		session.close();
+		driver.close();
 		return res;
 	}
 

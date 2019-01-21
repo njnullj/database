@@ -100,8 +100,8 @@ public class HomePage {
 	public Map<String, Post> getShortPosts(HttpSession session) {
 		Map<String, Post> shortposts = new HashMap<String, Post>();
 		shortposts = postService.getShortPosts();
-		for (User key : shortposts.keySet()) {
-			System.out.println("Key = " + key.getName());
+		for (String key : shortposts.keySet()) {
+			System.out.println("Key = " + key);
 		}
 		// 遍历map中的值
 		for (Post value : shortposts.values()) {
