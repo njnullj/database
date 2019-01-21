@@ -16,7 +16,7 @@ $(document).ready(function(){
 					title.appendTo('#ui_cards');
 					for(var i = 0; i < content.length; i++){
 						var t =  $("<div class='ui card' style='width:31%; display:block'>" +
-								"<div class='ui small centered circular  image'><a href='' /><img src='<c:url value=" + content[i].avatar + "/>'></a></div>" +
+								"<div class='ui small centered circular  image'><a href='' /><img src='" + content[i].avatar + "'/></a></div>" +
 								"<div class='content'><a class='header centered' href='' />" + content[i].name + "</a></div></div> ");
 						t.appendTo('#ui_cards');
 					}

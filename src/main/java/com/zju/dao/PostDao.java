@@ -55,12 +55,9 @@ public class PostDao {
 			user.setName(record.get("n.name").asString());
 			post.setPost_content(record.get("nb.publish_content").asString());
 			post.setDate(record.get("nb.publish_time").asString());
-<<<<<<< HEAD
-//			System.out.println(user.getName()+"在"+post.getDate()+"的时候发送了一条消息"+post.getPost_content());
-=======
+
 			System.out.println(user.getName()+"在"+post.getDate()+"的时候发送了一条消息"+post.getPost_content());
 			shortPosts.put(user.getName(), post);
->>>>>>> 6224183b6200ecd5add2057a9e8c1cedba4f01ac
 		}
 		
 		return shortPosts;

@@ -149,7 +149,7 @@
                     </div> 
                     <!-- empty event , wait for full and show -->
 
-                    <%@ include file="nextpage.jsp" %>                
+                    <!-- %@ include file="nextpage.jsp" %-->             
                   </div>  <!--end feed -->
 				  <div class="footer" style="left: 40%">
 					 <i class="disabled big loading spinner icon"></i>

@@ -75,7 +75,7 @@ public class FollowDao {
 				follower.setPosts(record.get("n.weibo_num").asNumber().intValue());
 				follower.setAvatar(record.get("n.avatar").asString());
 				System.out.println(cql+"     "+record.get("n.name").asString());
-				String next = "match (na:person{id:"+d+"})-[r:friends]->(nb:person) where nb.id <> "+d+"return nb.name, nb.avatar limit 25";//获取粉丝的粉丝的信息
+				String next = "match (na:person{id:"+d+"})-[r:friends]->(nb:person) where nb.id <> "+d+" return nb.name, nb.avatar limit 25";//获取粉丝的粉丝的信息
 				StatementResult next_result = session.run(next);
 				List<User> users = new ArrayList<User>();//记录粉丝的粉丝
 				while(next_result.hasNext()) {

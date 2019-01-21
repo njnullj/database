@@ -26,7 +26,7 @@ $(document).ready(function(){
 //	$(window).scroll(function() {
 //  		
 //  		if(no_more) {
-//  			//$('.footer').css('display', 'block').html('没有更多了');
+//  			$('.footer').css('display', 'block').html('没有更多了');
 //			return false;
 //		}
 //  		
@@ -53,7 +53,6 @@ $(document).ready(function(){
 //  								"<div class='content span6'><div class='summary'><a href=''>"+ index +"</a> 说<div class='date'>"+ content['date'] +"</div>test</div>" +
 //  								"<div class='extra'>"+ content['post_content'] +"</div><div class='meta'><div class='actions'><a class='comment'><i class='comment outline icon'></i><span>0</span></a><a class='like'><i class='heart icon' object_type='4' object_id=''></i><span>0</span></a></div></div></div></div>" +
 //  								"</div> ");
-//  						console.log(t);
 //  						t.appendTo('#feeds');
 //  		            });	
 //  				}
