@@ -27,7 +27,7 @@ public class PostDao {
 		String time = f.format(now);
 		System.out.println(time);
 		final String cql = "create (n:weibo{weibo_id:" + id + ",publish_time:\"" + time + "\",author:"
-				+ post.getPost_author() + ",publish_content:\"" + post.getPost_content() + "\",like:"+0+"})";
+				+ post.getPost_author() + ",publish_content:\"" + post.getPost_content() + "\",like:"+0+",comment"+0+"})";
 		final String match = "MATCH (na:person),(nb:weibo) WHERE na.id = " + post.getPost_author() + " AND nb.weibo_id = "
 				+ id + " CREATE (na)-[r:publish]->(nb) RETURN r";
 		System.out.println(post.getPost_author() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + id);
@@ -44,7 +44,7 @@ public class PostDao {
 		// TODO Auto-generated method stub
 		Map<String,Post> shortPosts = new HashMap<String,Post>();
 
-		String cql = "match (n:person)-[r:publish]->(nb:weibo) return n.name,nb.publish_content,nb.publish_time,nb.like order by nb.publish_time desc limit 50";
+		String cql = "match (n:person)-[r:publish]->(nb:weibo) return n.name,nb.publish_content,nb.publish_time,nb.like,nb.comment order by nb.publish_time desc limit 50";
 		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
 		Session session = driver.session();
 		StatementResult result = session.run(cql);
@@ -55,9 +55,9 @@ public class PostDao {
 			user.setName(record.get("n.name").asString());
 			post.setPost_content(record.get("nb.publish_content").asString());
 			post.setDate(record.get("nb.publish_time").asString());
-			System.out.println();
 			post.setLike_count(record.get("nb.like").asInt());
-			System.out.println(user.getName()+"在"+post.getDate()+"的时候发送了一条消息"+post.getPost_content());
+			post.setComment_count(record.get("nb.comment").asInt());
+			System.out.println(record.get("nb.comment").asInt()+"  之前评论之后点赞    "+record.get("nb.like").asInt()+"       "+user.getName()+"在"+post.getDate()+"的时候发送了一条消息"+post.getPost_content());
 			shortPosts.put(user.getName(), post);
 
 		}
