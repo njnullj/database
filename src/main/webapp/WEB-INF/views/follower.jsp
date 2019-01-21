@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="referrer" content="no-referrer" />
-  <title>MSF</title>
+  <title>MFS</title>
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
@@ -39,22 +39,7 @@
 				<div class="ui divider">
 				</div>
 
-				<div class="ui cards">
-					<c:forEach items="${followers}" var="follower">
-			            <div class="ui card" style="width:33%">
-			              <div class="ui small centered circular  image">
-			                <a href="<c:url value="/user/${follower.id }" />"><img src="<c:url value="${follower.avatar }"/> "></a>
-			              </div>
-			              <div class="content">
-			                <a class="header centered" href="<c:url value="/user/${following.id}" />">
-			                	${follower.name}
-			                </a>
-			              </div>
-			            </div> 
-					
-					
-					</c:forEach>
-				
+				<div class="ui cards" id='ui_cards'>				
 				
 				</div>
 				<!-- end cards -->
@@ -63,5 +48,7 @@
 		</div>
 	
 	</div>
+	<script src="<%=request.getContextPath() %>/js/followers.js"></script>
 </body>
+
 </html>

@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="referrer" content="no-referrer" />
-  <title>MSF</title>
+  <title>MFS</title>
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
@@ -29,18 +29,6 @@
   		height: 40px;
   	}
   </style>
-  <script>
-  	$.ajax({
-			url: basePath+'/followers',
-			type: 'POST',
-			dataType: 'json',
-			data:{id: 1625646585}
-		})
-		.success(function(data) {
-			console.log(data);
-			
-		});
-  </script>
 </head>
 <body>
   <%@ include file="topbar.jsp" %>

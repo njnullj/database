@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="referrer" content="no-referrer" />
-  <title>MSF</title>
+  <title>MFS</title>
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
