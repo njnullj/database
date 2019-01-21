@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="referrer" content="no-referrer" />
-  <title>MSF</title>
+  <title>MFS</title>
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
@@ -42,7 +42,7 @@
 
 				<div class="ui cards">
 					<c:forEach items="${followings }" var="following">
-			            <div class="ui card" style="width:33%">
+			            <div class="ui card" style="width:31%">
 			              <div class="ui small centered circular  image">
 			                <a href="<c:url value="/user/${following.id }" />" target="_blank"><img src="<c:url value="${following.avatar }"/> "></a>
 			              </div>

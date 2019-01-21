@@ -1,5 +1,5 @@
 body{
-	font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","寰蒋闆呴粦",Arial,sans-serif;
 }
 
 a {
@@ -169,7 +169,7 @@ a {
 	float: right;
 }
 .post p {
-	font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","寰蒋闆呴粦",Arial,sans-serif;
 	line-height: 1.5;
 	font-size: 14px;
 }
@@ -970,4 +970,9 @@ img.emojione {
 }
 .search .tagbox .content .imgbox:FIRST-CHILD {
 	margin-left: 0;
+}
+
+.fontstyle{
+	font-weight: bold;
+	font-size: 20px;
 }

@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="referrer" content="no-referrer" />
-  <title>MSF</title>
+  <title>MFS</title>
   <link rel="shortcut icon" href="<%=request.getContextPath() %>/img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
@@ -29,19 +29,6 @@
   		height: 40px;
   	}
   </style>
-  
-  <script>
-   $.ajax({
-   url: basePath+'/getShortPosts',
-   type: 'POST',
-   dataType: 'json',
-   data:{}
-  })
-  .success(function(data) {
-   console.log(data);  
-  });
-  </script>
-  
 </head>
 <body>
   <%@ include file="topbar.jsp" %>
@@ -222,6 +209,7 @@
 
   </div>
 
-  <script src="<%=request.getContextPath() %>/js/feed.js"></script>
+  <!-- <script src="<%=request.getContextPath() %>/js/feed.js"></script> -->
+  <script src="<%=request.getContextPath() %>/js/shortpost.js"></script>
 </body>
 </html>

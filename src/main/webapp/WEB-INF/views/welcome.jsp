@@ -9,7 +9,7 @@
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="0">
 	<meta name="referrer" content="no-referrer" />
-	<title>Welcome to MSF</title>
+	<title>Welcome to MFS</title>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bootstrap2.css">
   	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/navbar.css">
   	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/semantic.css">
@@ -46,7 +46,7 @@
 					<div class="span12">
 						<div class="row">
 							<div class="span6 overview">
-								<p class="initials">MSF</p>
+								<p class="initials">MFS</p>
 								<p class="en_initials">Make Friends Simple</p>
 								<p class="zh_initials">简单交友</p>
 							</div>

@@ -75,13 +75,14 @@ public class FollowDao {
 				follower.setPosts(record.get("n.weibo_num").asNumber().intValue());
 				follower.setAvatar(record.get("n.avatar").asString());
 				System.out.println(cql+"     "+record.get("n.name").asString());
-				String next = "match (na:person{id:"+d+"})-[r:friends]->(n:person) return n.name limit 25";//获取粉丝的粉丝的信息
+				String next = "match (na:person{id:"+d+"})-[r:friends]->(nb:person) where nb.id <> "+d+" return nb.name, nb.avatar limit 25";//获取粉丝的粉丝的信息
 				StatementResult next_result = session.run(next);
 				List<User> users = new ArrayList<User>();//记录粉丝的粉丝
 				while(next_result.hasNext()) {
 					User user = new User();
 					Record next_record = next_result.next();
-					user.setName(next_record.get("n.name").asString());
+					user.setName(next_record.get("nb.name").asString());
+					user.setAvatar(next_record.get("nb.avatar").asString());
 					users.add(user);
 				}
 				res.put(follower.getName(), users);
@@ -89,7 +90,7 @@ public class FollowDao {
 				for (String key : res.keySet()) {// 遍历map中的值
 					   System.out.print("Key = " + key+"   的粉丝有");
 					   for(User user:res.get(key)) {
-						   System.out.print(user.getName()+"     ");
+						   System.out.println(user.getName()+"     ");
 					   }
 					   System.out.println("");
 				}
@@ -99,7 +100,8 @@ public class FollowDao {
 
 				  
 		}
-		
+		session.close();
+		driver.close();
 		return res;
 	}
 
