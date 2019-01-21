@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+ 
 <c:forEach items="${feeds }" var="feed"> 
 	<c:if test="${feed.object_type == dic.object_type_shortpost }">
 		<div class="event row" type="spost" object_type="${feed.object_type }" object_id="${feed.object_id }">
@@ -46,7 +46,7 @@
 		 </div>   
 		 <!-- end event -->                 		
 	</c:if>
-	
+
 <!-- new post -->
  <c:if test="${feed.object_type == dic.object_type_post}">
  <div class="event row" type="post" object_type="${feed.object_type }" object_id="${feed.object_id }">

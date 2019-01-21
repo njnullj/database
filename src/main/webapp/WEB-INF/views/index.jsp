@@ -29,16 +29,16 @@
   		height: 40px;
   	}
   </style>
-
   <script>
   	$.ajax({
-			url: basePath+'/getShortPosts',
+			url: basePath+'/followers',
 			type: 'POST',
 			dataType: 'json',
-			data:{}
+			data:{id: 1625646585}
 		})
 		.success(function(data) {
-			console.log(data);		
+			console.log(data);
+			
 		});
   </script>
 </head>
@@ -221,6 +221,7 @@
 
   </div>
 
-  <script src="<%=request.getContextPath() %>/js/feed.js"></script>
+  <!-- <script src="<%=request.getContextPath() %>/js/feed.js"></script> -->
+  <script src="<%=request.getContextPath() %>/js/shortpost.js"></script>
 </body>
 </html>
