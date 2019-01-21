@@ -12,6 +12,7 @@ $(document).ready(function(){
 		})
 		.success(function(data) {
 				$.each(data, function(index, content) {
+					console.log(index, content);
 					var t =  $("<div class='event empty row' style='display:block'>" +
 							"<div class='label span2'><img src=''></div>" +
 							"<div class='content span6'><div class='summary'><a href=''>"+ index +"</a> 说<div class='date'>"+ content['date'] +"</div></div>" +

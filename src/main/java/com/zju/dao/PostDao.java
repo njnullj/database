@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,11 +24,11 @@ public class PostDao {
 		// TODO Auto-generated method stub
 		int id = (int) (Math.random() * Math.pow(2, 30));
 		Date now = new Date();
-		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = f.format(now);
 		System.out.println(time);
 		final String cql = "create (n:weibo{weibo_id:" + id + ",publish_time:\"" + time + "\",author:"
-				+ post.getPost_author() + ",publish_content:\"" + post.getPost_content() + "\",like:"+0+",comment"+0+"})";
+				+ post.getPost_author() + ",publish_content:\"" + post.getPost_content() + "\",like:"+0+",comment:"+0+"})";
 		final String match = "MATCH (na:person),(nb:weibo) WHERE na.id = " + post.getPost_author() + " AND nb.weibo_id = "
 				+ id + " CREATE (na)-[r:publish]->(nb) RETURN r";
 		System.out.println(post.getPost_author() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + id);
@@ -42,7 +43,7 @@ public class PostDao {
 
 	public Map<String,Post> getShortPosts() {
 		// TODO Auto-generated method stub
-		Map<String,Post> shortPosts = new HashMap<String,Post>();
+		Map<String,Post> shortPosts = new LinkedHashMap<String,Post>();
 
 		String cql = "match (n:person)-[r:publish]->(nb:weibo) return n.name,nb.publish_content,nb.publish_time,nb.like,nb.comment order by nb.publish_time desc limit 50";
 		Driver driver = GraphDatabase.driver("bolt://47.106.233.132:7687", AuthTokens.basic("neo4j", "s302"));
