@@ -15,7 +15,7 @@ $(document).ready(function(){
 					var t =  $("<div class='event empty row' style='display:block'>" +
 							"<div class='label span2'><img src=''></div>" +
 							"<div class='content span6'><div class='summary'><a href=''>"+ index +"</a> 说<div class='date'>"+ content['date'] +"</div></div>" +
-							"<div class='extra'>"+ content['post_content'] +"</div><div class='meta'><div class='actions'><a class='comment'><i class='comment outline icon'></i><span>0</span></a><a class='like'><i class='heart icon' object_type='4' object_id=''></i><span>0</span></a></div></div></div></div>" +
+							"<div class='extra'>"+ content['post_content'] +"</div><div class='meta'><div class='actions'><a class='comment'><i class='comment outline icon'></i><span>" + content['comment_count'] + "</span></a><a class='like'><i class='heart icon' object_type='4' object_id=''></i><span>" + content['like_count'] + "</span></a></div></div></div></div>" +
 							"</div> ");
 					
 					t.appendTo('#feeds');
