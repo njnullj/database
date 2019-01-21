@@ -76,6 +76,13 @@ public class HomePage {
 		return mav;
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/getfollowings",method = RequestMethod.POST)
+	public Map<String,List<User>> getFansFollowers(HttpSession session){
+		Map<String,List<User>> res = followService.getUserAndFollowers(((User) session.getAttribute("user")).getId());
+		return res;
+	}
+	
 	@RequestMapping("/followings")
 	public ModelAndView getFollowings(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -85,6 +92,8 @@ public class HomePage {
 		mav.setViewName("following");
 		return mav;
 	}
+	
+
 
 	@ResponseBody
 	@RequestMapping(value = "/getShortPosts", method = RequestMethod.POST)
